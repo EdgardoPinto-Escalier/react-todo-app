@@ -1,18 +1,36 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      message: 'HELLO TODO APP',
+      newTodo: ''
+    };
+  }
+
+  newTodoChanged(event) {
+    console.log(event.target.value);
+    this.setState({
+      newTodo: event.target.value
+    });
+  }
+
+  formSubmitted(event) {
+    event.preventDefault();
+    console.log(this.state.newTodo);
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <h3>{this.state.message}</h3>
+        <form onSubmit={this.formSubmitted.bind(this)}>
+          <label htmlFor="newTodo">NEW TODO</label>
+          <input onChange={(event) => this.newTodoChanged(event)} id="newTodo" name="newTodo"/>
+          <button type="submit">ADD TODO</button>
+        </form>
       </div>
     );
   }
