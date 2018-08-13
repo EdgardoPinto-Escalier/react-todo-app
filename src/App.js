@@ -35,7 +35,8 @@ class App extends Component {
         <div className="row">
          <h3 className="is-size-1 has-text-centered"><i className="fab fa-react fa-spin fa-lg"></i>&nbsp;{this.state.message}</h3>
         </div>
-          <form onSubmit={(event) => this.formSubmitted(event)}>
+        
+        <form onSubmit={(event) => this.formSubmitted(event)}>
         <div className="field">
           <label className="label is-medium" htmlFor="newTodo">NEW TODO</label>
           <div className="control has-icons-left">
